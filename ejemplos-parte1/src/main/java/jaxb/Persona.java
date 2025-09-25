@@ -1,11 +1,8 @@
 package jaxb;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement
-@XmlType(propOrder = { "apellidos", "nombre"})
 public class Persona {
 
 	// Por defecto, son elementos y tienen cardinalidad 0..1
@@ -16,7 +13,6 @@ public class Persona {
 		return nombre;
 	}
 
-	@XmlElement(name = "title")
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}

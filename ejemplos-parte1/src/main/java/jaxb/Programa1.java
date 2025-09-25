@@ -25,19 +25,19 @@ public class Programa1 {
 						
 		marshaller.setProperty("jaxb.formatted.output", true);
 				
-		marshaller.marshal(persona, new File("xml/persona3.xml"));
+		marshaller.marshal(persona, new File("xml/persona.xml"));
 		
 		// Cargamos el documento
 		
 		Unmarshaller unmarshaller = contexto.createUnmarshaller();
 		
-		Persona persona2 = (Persona) unmarshaller.unmarshal(new File("xml/persona3.xml"));
+		Persona persona2 = (Persona) unmarshaller.unmarshal(new File("xml/persona.xml"));
 		
 		// Modifica el nombre
 		persona2.setNombre("Juan Antonio");
 		
 		// Almacena los cambios en otro documento
-		marshaller.marshal(persona2, new File("xml/persona4.xml"));
+		marshaller.marshal(persona2, new File("xml/persona2.xml"));
 		
 		
 		System.out.println("fin.");
