@@ -2,9 +2,21 @@ package encuestas.modelo;
 
 import java.util.LinkedList;
 
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity // anotación JPA
 public class Opcion {
+	
+	@Id // anotación JPA
+	@GeneratedValue(strategy = GenerationType.TABLE) // anotación JPA
+	private Integer id;
 
 	private String texto;
+	@ElementCollection // anotación JPA
 	private LinkedList<String> votos = new LinkedList<>();
 	
 	public Opcion() { // POJO
