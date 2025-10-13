@@ -1,8 +1,9 @@
 package editorial.modelo;
 
-import java.io.Serializable;
+import javax.persistence.Entity;
 
-public class Revista implements Serializable{
+@Entity
+public class Revista  extends Publicacion{
 
 	private String issn;
 	private String volumen;

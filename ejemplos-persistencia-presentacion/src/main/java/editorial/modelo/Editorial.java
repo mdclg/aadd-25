@@ -58,13 +58,13 @@ public class Editorial implements Serializable{
     @OneToOne
     private Empleado director;
     
-    /*
+    
     @ManyToMany
     @JoinTable(name = "editorial_distribuidor", joinColumns = {
             @JoinColumn(name = "editorial_fk") }, 
             inverseJoinColumns = { @JoinColumn(name = "distribuidor_fk") })
     private ArrayList<Distribuidor> distribuidores;
-    */
+    
     public Editorial() {
     	
     }   
@@ -161,7 +161,7 @@ public class Editorial implements Serializable{
 	public void setTelefonos(List<String> telefonos) {
 		this.telefonos = telefonos;
 	}
-/*
+
 	public void addDistribuidor(Distribuidor d) {
 		if(distribuidores == null)
 			distribuidores = new ArrayList<>();
@@ -177,5 +177,5 @@ public class Editorial implements Serializable{
 		this.distribuidores = distribuidores;
 	}
 	
-	*/
+	
 }
