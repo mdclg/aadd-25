@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -20,6 +22,11 @@ import utils.LocalDateTimeAdapter;
 
 @XmlRootElement // anotación JAXB
 @Entity // anotacion JPA
+@NamedQueries({ // anotación JPA
+
+    @NamedQuery(name="Encuesta.getByIds", query="SELECT e FROM Encuesta e WHERE e.id in :ids ")
+
+})
 public class Encuesta implements Identificable {
 	
 	@Id //anotacion JPA
@@ -34,7 +41,7 @@ public class Encuesta implements Identificable {
 	private LocalDateTime cierre;
 	
 	@OneToMany(cascade = CascadeType.ALL) //anotación JPA
-	@JoinColumn(name="encuesta_fk")
+	@JoinColumn(name="encuesta_fk") //anotación JPA
 	private LinkedList<Opcion> opciones = new LinkedList<>();
 	
 	public Encuesta() { // POJO
@@ -75,7 +82,7 @@ public class Encuesta implements Identificable {
 		this.instrucciones = instrucciones;
 	}
 	
-	@XmlJavaTypeAdapter(value=LocalDateTimeAdapter.class)
+	@XmlJavaTypeAdapter(value=LocalDateTimeAdapter.class) // anotación JAXB
 	public LocalDateTime getApertura() {
 		return apertura;
 	}
@@ -83,7 +90,7 @@ public class Encuesta implements Identificable {
 		this.apertura = apertura;
 	}
 	
-	@XmlJavaTypeAdapter(value=LocalDateTimeAdapter.class)
+	@XmlJavaTypeAdapter(value=LocalDateTimeAdapter.class) // anotación JAXB
 	public LocalDateTime getCierre() {
 		return cierre;
 	}

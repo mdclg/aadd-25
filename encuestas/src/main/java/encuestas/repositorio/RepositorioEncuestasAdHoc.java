@@ -25,12 +25,12 @@ public interface RepositorioEncuestasAdHoc extends RepositorioString<Encuesta> {
 				encuesta.getCierre().isAfter(ahora)).collect(Collectors.toList());
 	}
 	
-	public List<Encuesta> getBySinVotos() throws RepositorioException, EntidadNoEncontrada ;
+	public List<Encuesta> getBySinVotos() throws RepositorioException ;
 	
-	public List<Encuesta> getByNumeroOpcionesMayorQue(int numero);
+	public List<Encuesta> getByNumeroOpcionesMayorQue(int numero)  throws RepositorioException ;
 	
 	// ...
 	public List<Encuesta> getByVotante(String nombre);
-	public List<Object[]> getOpcionesPorVotos();
+	public List<Object[]> getOpcionesPorVotos() throws RepositorioException;
 	
 }
