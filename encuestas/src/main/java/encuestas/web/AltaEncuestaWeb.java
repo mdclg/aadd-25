@@ -27,6 +27,8 @@ public class AltaEncuestaWeb implements Serializable {
 	private String nuevaOpcion;
 
 	private IServicioEncuestas servicioEncuestas;
+	private boolean error;
+	private String idEncuesta;
 	
 	@Inject
 	private FacesContext facesContext;
@@ -38,19 +40,14 @@ public class AltaEncuestaWeb implements Serializable {
 		// comprobación de campos
 
 		try {
-			String resultado = servicioEncuestas.crear(titulo, instrucciones, apertura, cierre, opciones);
-			facesContext.getExternalContext().getFlash().setKeepMessages(true);
-			//facesContext.getExternalContext().getFlash().setRedirect(true);
-			facesContext.addMessage(null,
-	                new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Encuesta "+resultado+" creada correctamente"));
-			try {
-			    facesContext.getExternalContext().redirect("detail.xhtml?id="+resultado);
-			} catch (IOException e) {
-			    facesContext.addMessage(null,
-								new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "No se ha podido navegar"));
-			    e.printStackTrace();
-			}
+			idEncuesta = servicioEncuestas.crear(titulo, instrucciones, apertura, cierre, opciones);
+			 facesContext.addMessage(null,
+	                new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Encuesta "+idEncuesta+" creada correctamente"));
+			
+			 error = false;
+			
 		} catch (Exception e) {
+			error = true;
 			facesContext.addMessage(null,
 	                new FacesMessage(FacesMessage.SEVERITY_ERROR, "", e.getMessage()));
 			e.printStackTrace();
@@ -98,4 +95,16 @@ public class AltaEncuestaWeb implements Serializable {
 	public void setNuevaOpcion(String nuevaOpcion) {
 		this.nuevaOpcion = nuevaOpcion;
 	}
+	public boolean isError() {
+		return error;
+	}
+	public void setError(boolean error) {
+		this.error = error;
+	}
+	public String getIdEncuesta() {
+		return idEncuesta;
+	}
+	
+	
+	
 }

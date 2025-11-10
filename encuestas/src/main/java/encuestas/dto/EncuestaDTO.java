@@ -2,6 +2,7 @@ package encuestas.dto;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class EncuestaDTO implements Serializable {
 
@@ -10,6 +11,7 @@ public class EncuestaDTO implements Serializable {
 	private String instrucciones;
 	private LocalDateTime apertura;
 	private LocalDateTime cierre;
+    private ArrayList<String> opciones;
 
     public EncuestaDTO(String id, String titulo, String instrucciones, LocalDateTime apertura, LocalDateTime cierre) {
 		this.id = id;
@@ -17,6 +19,26 @@ public class EncuestaDTO implements Serializable {
 		this.instrucciones = instrucciones;
 		this.apertura = apertura;
 		this.cierre = cierre;
+		opciones = new ArrayList<String>();
+	}
+    
+    
+    
+    public ArrayList<String> getOpciones() {
+		return opciones;
+	}
+
+
+
+	public void setOpciones(ArrayList<String> opciones) {
+		this.opciones = opciones;
+	}
+
+
+
+	public void addOpcion(String o) {
+		opciones.add(o);
+			
 	}
 	public String getId() {
 		return id;
