@@ -1,11 +1,9 @@
-package aadd.web.ambitos;
+package aadd.web.localizacion;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -14,25 +12,21 @@ import javax.inject.Named;
 
 @Named
 @SessionScoped
-public class CarritoWeb implements Serializable{
+public class CarritoServerLocaleWeb implements Serializable{
 	
 	@Inject
 	private FacesContext facesContext;
 	
-	private ResourceBundle bundle;
+	@Inject
+	private ActiveLocale localeConfig;
 	
-	@PostConstruct
-	public void initBundle() {
-
-	    bundle = ResourceBundle.getBundle("i18n.text", facesContext.getViewRoot().getLocale());
-
-	}
+	
 	
 	private List<String> items;
 
 	private String item;
 	
-	public CarritoWeb() {
+	public CarritoServerLocaleWeb() {
 		System.out.println("Nuevo CarritoWeb");
         items = new ArrayList<>();
     }
@@ -51,8 +45,9 @@ public class CarritoWeb implements Serializable{
 
     public void limpiarCarrito() {
         items.clear();
-        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",
-                bundle.getString("successClean")));
+        facesContext.addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "",localeConfig.getBundle().getString("successClean")));
+        
     }
 
 	public String getItem() {
