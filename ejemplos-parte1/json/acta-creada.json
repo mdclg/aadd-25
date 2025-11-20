@@ -1,0 +1,25 @@
+
+{
+    "convocatoria": "febrero",
+    "curso": "2025",
+    "asingatura": "1234",
+    "calificaciones": [
+        {
+            "nif": "12345678Z",
+            "nota": 8.5
+        },
+        {
+            "nif": "33333333P",
+            "nota": 9.0,
+            "nombre": "Juan"
+        }
+    ],
+    "diligencias": [
+        {
+            "fecha": "2025-11-19",
+            "extraordinaria": false,
+            "nif": "12345678Z",
+            "nota": 9.0
+        }
+    ]
+}

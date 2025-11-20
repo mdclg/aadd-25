@@ -1,0 +1,20 @@
+
+{
+    "calificaciones": [
+        {
+            "nif": "23424244",
+            "nota": 10.0
+        },
+        {
+            "nif": "324254254",
+            "nota": 9.5
+        }
+    ],
+    "convocatoria": "2025",
+    "diligencias": [
+        {
+        },
+        {
+        }
+    ]
+}

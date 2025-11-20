@@ -1,0 +1,23 @@
+{
+	"convocatoria":"febrero",
+	"curso":"2025",
+	"asignatura":"1902",
+	"calificaciones":[
+				{
+					"nif":"17309648D",
+					"nota":10
+				},
+				{
+					"nif":"59375279C", 
+					"nota":8
+				}
+	],
+	"diligencias":[		
+			{
+				"fecha":"2025-09-12",
+				"extraordinaria":false,
+				"nif":"59375279C",
+				"nota":9
+			}
+	]
+}
