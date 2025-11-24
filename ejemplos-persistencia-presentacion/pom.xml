@@ -8,7 +8,14 @@
 	<packaging>war</packaging>
 	
 	<dependencies>
-	<!-- websockets de omnifaces-->
+	
+	<!-- mongodb -->
+	<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-driver-sync</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+		<!-- websockets de omnifaces-->
 
 		<dependency>
 			<groupId>org.omnifaces</groupId>
@@ -27,13 +34,13 @@
 			<artifactId>validation-api</artifactId>
 			<version>2.0.1.Final</version>
 		</dependency>
-	<!-- primefaces-->
+		<!-- primefaces-->
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>15.0.0</version>
 		</dependency>
-	<!-- jsf -->
+		<!-- jsf -->
 		<dependency>
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.faces</artifactId>
