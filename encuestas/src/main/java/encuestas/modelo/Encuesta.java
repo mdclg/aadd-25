@@ -16,6 +16,11 @@ import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import org.bson.BsonType;
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.codecs.pojo.annotations.BsonIgnore;
+import org.bson.codecs.pojo.annotations.BsonRepresentation;
+
 import repositorio.Identificable;
 import utils.LocalDateTimeAdapter;
 
@@ -31,6 +36,8 @@ public class Encuesta implements Identificable {
 	
 	@Id //anotacion JPA
 	@GeneratedValue(strategy = GenerationType.TABLE) //anotación JPA
+	@BsonId //anotacion MongoDB
+	@BsonRepresentation(BsonType.OBJECT_ID) //anotacion MongoDB
 	private String id;
 	
 	private String titulo;
@@ -61,6 +68,7 @@ public class Encuesta implements Identificable {
 			this.opciones.add(new Opcion(opcionTexto));
 	}
 
+	
 	public String getId() {
 		return id;
 	}
@@ -105,7 +113,7 @@ public class Encuesta implements Identificable {
 	}
 	
 	// Propiedad calculada
-	
+	@BsonIgnore
 	public int getNumeroOpciones() {
 		
 		return this.opciones.size();
